@@ -13,6 +13,7 @@ function AddUser (props) {
 
     const submitHandler = () =>  {
         let p = new Person(name, lastname, age);
+        console.log(p); 
         props.add(p);
     }
 

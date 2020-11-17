@@ -1,7 +1,8 @@
 import React, {Component} from "react";
-import {connect} from "react-redux";
+// import {connect} from "react-redux";
 import Button from 'react-bootstrap/Button';
 import {Table} from "react-bootstrap";
+
 const generateHeader = (array) => {
     return (
         <thead>
@@ -13,14 +14,16 @@ const generateHeader = (array) => {
     )
 }
 
-let Price ;
-
 
 class UserTable extends Component {
 
-
-
-
+    constructor(props) {
+        super(props); 
+        this.addMoney = this.addMoney.bind(this); 
+        this.CheckSavings  = this.CheckSavings.bind(this); 
+    }
+    
+    
     addMoney = (index) => {
         let newState = this.props.persons ;
         newState[index].paycheck();
@@ -43,11 +46,9 @@ class UserTable extends Component {
 
         return (
         <Table striped bordered hover >
-            {generateHeader()}  {console.log(this.state)}  {console.log(this.props.persons)}
-
+            {generateHeader()}  {console.log(this.props.persons)}
            <tbody>
             {this.props.persons.map((person, index) =>  {
-
                 return(
                     <tr>
                         <td>{person.getName()}</td>
@@ -75,16 +76,16 @@ class UserTable extends Component {
 
 }
 
-const mapdispatchToProps = dispatch => {
-    return {
-        replaceState : (state) => dispatch({type : 'REPLACESTATE', payload: state})
-    }
-}
+// const mapdispatchToProps = dispatch => {
+    // return {
+        // replaceState : (state) => dispatch({type : 'REPLACESTATE', payload: state})
+    // }
+// }
 
-const mapStateToProps = state  => {
-    return {
-        persons : state.users
-    }
-}
+// const mapStateToProps = state  => {
+    // return {
+        // persons : state.users
+    // }
+// }
 
-export default connect(mapStateToProps,mapdispatchToProps)(UserTable) ;
+export default (UserTable) ;
