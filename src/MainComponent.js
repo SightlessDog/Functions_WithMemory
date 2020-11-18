@@ -22,9 +22,6 @@ class Main extends Component {
     }
         
     add = (person) => {
-    //   this.setState({
-        //   persons : {} 
-    //   })
         this.state.persons.push(person)
         this.setState({...this.state.persons})
     }
