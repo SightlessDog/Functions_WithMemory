@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {Person} from '../Modals/Person' ;
 import {Button, FormControl, InputGroup} from "react-bootstrap";
+import {connect} from "react-redux"; 
 
 function AddUser (props) {
     const [name, setName] = useState();
@@ -29,4 +30,10 @@ function AddUser (props) {
     )
 }
 
-export default AddUser ;
+const mapDispatchToProps = dispatch => {
+    return {
+        add : (p) => dispatch({type : 'CREATEUSER', payload : p})
+    }
+}
+
+export default connect(null, mapDispatchToProps)(AddUser) ;

@@ -2,7 +2,8 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import Button from 'react-bootstrap/Button';
 import {Table} from "react-bootstrap";
-const generateHeader = (array) => {
+
+const generateHeader = () => {
     return (
         <thead>
         <th>Name</th>
@@ -13,13 +14,7 @@ const generateHeader = (array) => {
     )
 }
 
-let Price ;
-
-
 class UserTable extends Component {
-
-
-
 
     addMoney = (index) => {
         let newState = this.props.persons ;
@@ -39,8 +34,6 @@ class UserTable extends Component {
 
 
     render() {
-
-
         return (
         <Table striped bordered hover >
             {generateHeader()}  {console.log(this.state)}  {console.log(this.props.persons)}
@@ -67,12 +60,8 @@ class UserTable extends Component {
             }
             </tbody>
         </Table>
-
     )
-
-
 }
-
 }
 
 const mapdispatchToProps = dispatch => {
